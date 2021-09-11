@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  background-color: #272727;
+}
+.all-links {
+  display: flex;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+.logout {
+  margin-top: 17px;
+  padding: 6px 8px 6px 8px;
+}
+
+.onSmallDevices {
+  display: none;
+}
+
+li {
+  list-style: none;
+}
+
+@media all and (max-width: 576px) {
+  .onLargeDevices {
+    display: none;
+  }
+}
+@media all and (max-width: 576px) {
+  .onSmallDevices {
+    display: flex;
+  }
+
+  .header {
+    padding-right: 8px;
+    padding-left: 8px;
+    justify-content: space-between;
+  }
+}

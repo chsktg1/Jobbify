@@ -1,0 +1,60 @@
+.chskMainContainer {
+  background-color: rgb(43, 44, 41);
+  margin-top: 5vh;
+  margin-left: 5vh;
+  color: white;
+  border-radius: 15px;
+  padding: 20px;
+  margin-right: 5vh;
+  margin-bottom: 15px;
+}
+.justForBackgroundColor {
+  background-color: black;
+  padding: 1px;
+}
+.companyLogo {
+  width: 80px;
+}
+
+.ratingContainer {
+  display: flex;
+  flex-direction: row;
+}
+.justAContainer {
+  display: flex;
+}
+
+.columnFlexer {
+  display: flex;
+  flex-direction: column;
+}
+
+.locEmpPackContainer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.locEmpContainer {
+  display: flex;
+  width: 10%;
+  justify-content: space-between;
+}
+
+.desVisit {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.lifeAtCompany {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+@media all and (max-width: 576px) {
+  .lifeAtCompany {
+    flex-direction: column;
+  }
+}

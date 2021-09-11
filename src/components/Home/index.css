@@ -1,0 +1,22 @@
+.home-container {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/home-lg-bg.png');
+  background-size: cover;
+  color: white;
+  min-height: 100vh;
+}
+h1 {
+  font-size: 80px;
+}
+.text-container {
+  padding: 1vw;
+  max-width: 54vw;
+}
+
+@media all and (max-width: 576px) {
+  .text-container {
+    min-width: 98vw;
+  }
+  h1 {
+    font-size: 55px;
+  }
+}

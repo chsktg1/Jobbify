@@ -1,0 +1,81 @@
+.profile-container {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/profile-bg.png');
+  background-size: contain;
+  padding: 15px;
+  background-repeat: no-repeat;
+  margin: 10px;
+  min-width: 250px;
+}
+.Employment {
+  color: white;
+  padding: 15px;
+}
+
+.search-container {
+  margin-top: 10px;
+  display: flex;
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 25vw;
+}
+
+#searchBar {
+  border: none;
+  width: 25vw;
+}
+
+.sumanthContainer {
+  display: flex;
+  background-color: black;
+}
+
+.onlyForSmallScreen {
+  display: none;
+}
+
+.noNameLeft {
+  margin-top: '2vw';
+  overflow: 'auto';
+  margin-left: '3vw';
+  height: '80%';
+  width: '70vw';
+}
+.allJobsHolder {
+  margin-top: 10px;
+}
+
+@media all and (max-width: 576px) {
+  .noNameLeft {
+    width: 90vw;
+  }
+
+  .bigProfileContainer {
+    width: 90vw;
+  }
+  .profile-container {
+    min-width: 90vw;
+    background-size: cover;
+  }
+  .onlyForSmallScreen {
+    display: flex;
+  }
+  .sumanthContainer {
+    flex-direction: column;
+  }
+  .search-container {
+    margin-left: 10vw;
+    width: 80vw;
+  }
+
+  #searchBar {
+    width: 100%;
+  }
+  .onlyForLargeScreen {
+    display: none;
+  }
+  .allJobsHolder {
+    width: 95vw;
+
+    padding: 10px;
+  }
+}

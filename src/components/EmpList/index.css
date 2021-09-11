@@ -1,0 +1,8 @@
+.list-item {
+  list-style: none;
+  display: flex;
+  max-width: 150px;
+}
+pre {
+  color: white;
+}

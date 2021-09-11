@@ -1,0 +1,24 @@
+.topContainer {
+  display: flex;
+}
+
+.companyLogo {
+  width: 90px;
+  margin-right: 15px;
+  margin-top: 0px;
+}
+
+.jobCard {
+  background-color: #64748b;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  color: white;
+  margin-right: '1vw';
+}
+
+@media all and (max-width: 576px) {
+  .jobCard {
+    width: 100%;
+  }
+}
