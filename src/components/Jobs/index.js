@@ -32,6 +32,12 @@ class Jobs extends Component {
     this.fetchData()
   }
 
+  someKeyPressed = event => {
+    console.log('hello')
+
+    console.log('someKeyPressed', event)
+  }
+
   fetcher = async () => {
     const {searchPhrase, jobType, minPack} = this.state
     let empType = jobType.filter(e => e !== 'false' || e !== false)
@@ -95,9 +101,11 @@ class Jobs extends Component {
     const profileData = await fetch(profileApiUrl, options)
     const profileJsonData = await profileData.json()
     const data = await fetch(apiUrl, options)
-    const jsonData = await data.json()
+
     const allJobsUrl = 'https://apis.ccbp.in/jobs'
     const allJobsPromise = await fetch(allJobsUrl, options)
+    console.log('allJobsPromise', allJobsPromise)
+
     if (allJobsPromise.ok === true) {
       const allJobsJson = await allJobsPromise.json()
       console.log('allJobsPromise', allJobsPromise)
@@ -120,13 +128,16 @@ class Jobs extends Component {
 
       this.setState({isLoading: false, profileDetails, allJobsJsonFormatted})
     } else {
-      this.setState({showJobsError: true})
+      this.setState({showJobsError: true, isLoading: false})
     }
   }
 
   renderNoJobsFound = () => (
     <>
-      <img src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png" />
+      <img
+        src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png"
+        alt="no jobs"
+      />
       <h1 style={{color: 'white'}}>No Jobs Found</h1>
       <p style={{color: 'white'}}>
         We could not find any jobs. Try other filters.
@@ -162,19 +173,18 @@ class Jobs extends Component {
       />
       <h1>Oops! Something Went Wrong</h1>
       <p>We cannot seem to find the page you are looking for.</p>
-      <button onClick={this.fetchData()}>Retry</button>
+      <button type="button" onClick={this.fetchData}>
+        Retry
+      </button>
     </>
   )
 
   render() {
-    const {
-      employmentTypesList,
-      salaryRangesList,
-      searchPhrase,
-      showJobsError,
-    } = this.props
+    const {employmentTypesList, salaryRangesList, searchPhrase} = this.props
 
-    const {isLoading, profileDetails} = this.state
+    const {isLoading, profileDetails, showJobsError} = this.state
+    console.log('showJobsError from render', showJobsError)
+
     const {name, shortBio, profileImageUrl} = profileDetails
     return (
       <>
@@ -185,6 +195,7 @@ class Jobs extends Component {
             <input
               value={searchPhrase}
               onChange={this.updateSearchPhrase}
+              onKeyUp={() => console.log('je')}
               id="searchBar"
               type="search"
             />
@@ -200,7 +211,9 @@ class Jobs extends Component {
                 <div className="profile-container">
                   {showJobsError ? (
                     <>
-                      <button onClick={this.fetchData()}>Retry</button>
+                      <button type="button" onClick={this.fetchData}>
+                        Retry
+                      </button>
                     </>
                   ) : (
                     <>
@@ -251,17 +264,7 @@ class Jobs extends Component {
                 </button>
               </div>
             </div>
-            <div
-              className="noNameLeft"
-              //   style={{
-              //     marginTop: '2vw',
-              //     overflow: 'auto',
-              //     marginLeft: '3vw',
-
-              //     height: '80%',this.renderAllJobs()
-              //     width: '70vw',showJobsError
-              //   }}
-            >
+            <div className="noNameLeft">
               {isLoading
                 ? this.renderLoader()
                 : showJobsError

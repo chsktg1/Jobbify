@@ -11,7 +11,7 @@ import SkillMaker from '../SkillMaker'
 
 import Header from '../Header'
 
-import JobCard from '../JobCard'
+import SimilarJobs from '../SimilarJobs'
 
 import './index.css'
 
@@ -40,6 +40,7 @@ class SpecificJob extends Component {
       },
     }
     const data = await fetch(url, options)
+
     if (data.ok) {
       const jsonData = await data.json()
       console.log(jsonData)
@@ -61,7 +62,7 @@ class SpecificJob extends Component {
       }))
       this.setState({isLoading: false, jobInDetail, similarJobs})
     } else {
-      this.setState({showError: true})
+      this.setState({showError: true, isLoading: false})
     }
   }
 
@@ -73,12 +74,14 @@ class SpecificJob extends Component {
       />
       <h1>Oops! Something Went Wrong</h1>
       <p>We cannot seem to find the page you are looking for.</p>
-      <button>Retry</button>
+      <button type="button" onClick={this.fetchData}>
+        Retry
+      </button>
     </>
   )
 
   renderingJobInDetail = () => {
-    const {jobInDetail, similarJobs, showError} = this.state
+    const {jobInDetail, similarJobs} = this.state
     const {
       location,
       employmentType,
@@ -93,7 +96,7 @@ class SpecificJob extends Component {
       skills,
       title,
     } = jobInDetail
-    console.log(skills)
+    console.log(companyWebsiteUrl)
     return (
       <div className="justForBackgroundColor">
         <div className="chskMainContainer">
@@ -124,7 +127,7 @@ class SpecificJob extends Component {
           <hr style={{backgroundColor: 'white'}} />
           <div className="desVisit">
             <h1 style={{fontWeight: 'bold'}}>Description</h1>
-            <a href={{companyWebsiteUrl}}>Visit</a>
+            <a href={companyWebsiteUrl}>Visit</a>
           </div>
           <p>{jobDescription}</p>
           <h1 style={{fontWeight: 'bold'}}>Life at Company</h1>
@@ -147,7 +150,7 @@ class SpecificJob extends Component {
         </div>
         <h1>Similar Jobs</h1>
         {similarJobs.map(e => (
-          <JobCard e={e} key={e.id} />
+          <SimilarJobs e={e} key={e.id} />
         ))}
       </div>
     )

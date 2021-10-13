@@ -1,4 +1,4 @@
-import {Switch, Route} from 'react-router-dom'
+import {Switch, Route, Redirect} from 'react-router-dom'
 
 import './App.css'
 
@@ -66,7 +66,9 @@ const App = () => (
         )}
       />
       <ProtectedPath exact path="/jobs/:id" component={SpecificJob} />
-      <Route component={NotFound} />
+      <Route path="/not-found" component={NotFound} />
+
+      <Redirect to="not-found" />
     </Switch>
   </div>
 )

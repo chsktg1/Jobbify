@@ -5,7 +5,7 @@ const NotFound = () => (
       src="https://assets.ccbp.in/frontend/react-js/jobby-app-not-found-img.png"
       alt="not found"
     />
-    <p>we’re sorry, the page you requested could not be found.</p>
+    <p>we're sorry, the page you requested could not be found.</p>
   </>
 )
 

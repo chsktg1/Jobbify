@@ -41,7 +41,11 @@ class Header extends Component {
             <li> </li>
           </ul>
           <div>
-            <button className="btn btn-info mt-2" onClick={this.logout}>
+            <button
+              type="button"
+              className="btn btn-info mt-2"
+              onClick={this.logout}
+            >
               Logout
             </button>
           </div>
